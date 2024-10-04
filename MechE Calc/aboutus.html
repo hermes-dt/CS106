@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, inital-scale=1.0">
+<title>Mechanical Engineer's Stress-Strain Calculator</title>
+<style>
+    /* How the navigation bar is being styled below */
+    nav {
+        background-color: #3780BB;
+        padding: 20px;
+        display: flex; /*This is CSS Flexbox to align items in the nav bar*/
+        justify-content: space-between;
+        align-items: center;
+    } 
+    /* Title's style */
+    nav .title {
+        color: white;
+        font-size: 36px;
+        
+    }
+   /*Applies styles to the unordered list*/
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    /*Applies to each list item*/
+    nav ul li {
+        position: relative;
+        margin-right: 20px;
+
+    }
+    /*Applies styles to the list items with the anchor tags*/
+    nav ul li a {
+        color:white;                /*makes the items white*/
+        text-decoration: none;        /*Removes underline that usually pops up on links*/
+        font-size: 20 ;
+    }
+    /* Applies a style when you hover your mouse over */
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    nav ul li ul {
+        display:none;
+        position: absolute;
+        background-color: #042642;
+        padding: 10px;
+        list-style: none;
+        top: 100%;
+        left: 0;
+        margin: 0;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
+    nav ul li ul li {
+        color: white;
+        margin-left: 10;
+        display: block;
+    }
+    nav ul li ul li a:hover {
+        background-color: #8dadc7
+    }
+</style>
+</head>
+<body>
+
+    <nav>
+        <div class="title">Stress-Strain Calculator <br> For Mechanical Engineers</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#">Calculators</a>
+                <ul>
+                    <li><a href="stress.html">Stress</a></li>
+                    <li><a href="strain.html">Strain</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <h1>About Us</h1>
+    <p>We’re here to help engineers, and students easily calculate stress and strain in materials. Our team of engineers created this tool to make complex ideas simpler and more accessible for everyone. With a user-friendly design and helpful resources, we aim to support you in your projects. We’re always looking to improve, so your feedback is important to us.</p>
+
+</body>
+
+
+</html>
+
+
