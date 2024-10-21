@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <title>Mechanical Engineer's Stress-Strain Calculator</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <style>
+            /* Custom Styles */
+            /* Navbar title text color */
+            .navbar-brand {
+                color: white;
+            }
+        
+            /* Navbar button text color */
+            .nav-link {
+                color: white;
+            }
+                /*Underline Navbar Links when you hover*/
+                .nav-link:hover {
+                    text-decoration: underline;
+                }
+            /* Navbar Background Color */
+            .navbar-custom {
+                background-color: #3780BB;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="#">Stress-Strain Calculator</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Use Bootstrap's built-in icon -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Home -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <!-- Calculator -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="stress-strain.html">Calculator</a>
+                        </li>
+                        <!-- About -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About</a>
+                        </li>
+                        <!-- Contact Us -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+
+        <div class="container">
+            <h1 class="mb-4">Contact Us</h1>
+            <p>If you have any questions, comments, or feedback, please feel free to reach out to us using the form below.</p>
+
+            <!-- Contact Form -->
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="6" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    </html>
+
+

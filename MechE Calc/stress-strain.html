@@ -1,203 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Stress Calculator</title>
-        <style>
-       /* How the navigation bar is being styled below */
-    nav {
-        background-color: #3780BB;
-        padding: 20px;
-        display: flex; /*This is CSS Flexbox to align items in the nav bar*/
-        justify-content: space-between;
-        align-items: center;
-    } 
-    /* Title's style */
-    nav .title {
-        color: white;
-        font-size: 36px;
-        
-    }
-   /*Applies styles to the unordered list*/
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-    /*Applies to each list item*/
-    nav ul li {
-        position: relative;
-        margin-right: 20px;
-
-    }
-    /*Applies styles to the list items with the anchor tags*/
-    nav ul li a {
-        color:white;                /*makes the items white*/
-        text-decoration: none;        /*Removes underline that usually pops up on links*/
-        font-size: 20;
-    }
-    /* Applies a style when you hover your mouse over */
-    nav ul li a:hover {
-        text-decoration: underline;
-    }
-    nav ul li ul {
-        display:none;
-        position: absolute;
-        background-color: #042642;
-        padding: 10px;
-        list-style: none;
-        top: 100%;
-        left: 0;
-        margin: 0;
-    }
-    nav ul li:hover ul {
-        display: block;
-    }
-    nav ul li ul li {
-        color: white;
-        margin-left: 10;
-        display: block;
-    }
-    nav ul li ul li a:hover {
-        background-color: #8dadc7;
-    } 
-    /* CSS Style for the Stress Calculator*/
-    .calctitle {
-        max-width: 400px;
-        margin-left: 10px auto;
-        padding: 0 60px;
-    }
-    .calctitle h1 {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    #stressForm {
-        max-width: 400px;
-        margin-left: 10px auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    #stressForm button{
-        width: 100%;
-        padding: 10px;
-        background-color: #3780BB;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    #stressForm button:hover {
-        background-color: #2e6fa1;
-    }
-
-    #stressResult {
-        background-color: #e9ecef;
-    }
-
-    .form-group {
-        margin-bottom: 10px;
-    }
-    .form-group input {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-        border-radius: 5px;
-    }
-    .error {
-        color: red;
-        font-weight: 900;
-    }
-
-        </style> 
-
+        <link rel="stylesheet" href="bootstrap.min.css">
+            <style>
+                /* Custom Styles */
+                /* Navbar title text color */
+                .navbar-brand {
+                    color: white;
+                }
+            
+                /* Navbar button text color */
+                .nav-link {
+                    color: white;
+                }
+                    /*Underline Navbar Links when you hover*/
+                    .nav-link:hover {
+                        text-decoration: underline;
+                    }
+                    
+                /* Navbar Background Color */
+                .navbar-custom {
+                    background-color: #3780BB;
+                }
+                /* CSS Style for the Stress Calculator*/
+                .calctitle {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 0 30px;
+                }
+                #stressForm {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 20px;
+                    background-color: #f9f9f9;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+                    #stressForm button{
+                        width: 100%;
+                        padding: 10px;
+                        background-color: #3780BB;
+                        color: #fff;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+                        #stressForm button:hover {
+                            background-color: #2e6fa1;
+                        }
+                    .form-row .form-group {
+                        flex: 1;
+                        margin-right: 10px;
+                    }
+                    /* Adjust input widths within form groups */
+                    .form-group input {
+                        width: 100%;
+                        padding: 8px;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                    }
+                    .form-group {
+                        margin-bottom: 10px;
+                    }
+            </style> 
     </head>
 
 <body>
-    <nav>
-        <div class="title">Stress-Strain Calculator <br> For Mechanical Engineers</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li>
-                <a href="#">Calculators</a>
-                <ul>
-                    <li><a href="stress-strain.html">Stress-Strain</a></li>
-                    <li><a href="#">2nd Calc</a></li>
-                </ul>
-            </li>
-            <li><a href="aboutus.html">About Us</a></li>
-        </ul>
-    </nav>
-    <div class="calctitle">
-    <h1>Stress Calculator</h1>
-    <form id="stressForm">
-        <div class="form-group">
-            <label for="force">Force (N):</label>
-            <input type="number" id="force" required>
-        </div> <br>
-        <div class="form-group">
-        <label for="area"> Area (m²):</label>
-        <input type="number" id="area" required>
-        </div> <br>
-        <div class="form-group">
-        <button type="button" onclick="calculateStress()">Calculate Stress</button>
-        </div> <br>
-        <div class="form-group">
-        <label for="Stress">Stress (N/m²):</label>
-        <input type="number" id="stressResult"> 
-        </div>
-        <div class="error" id="errorMessage"></div>
-    </form>
-    </div>
-    <script src="calcStress.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">Stress-Strain Calculator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Use Bootstrap's built-in icon -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="calctitle">
-        <h1>Strain Calculator</h1>
-        <form id="stressForm">
-        <div class="form-group">
-            <label for="inLength"> Initial Length (in):</label>
-            <input type="number" id="inLength" required>
-        </div> <br>
-        <div class="form-group">
-            <label for="fLength">Final Length (in):</label>
-            <input type="number" id="fLength" required>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <!-- Calculator -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="stress-strain.html">Calculator</a>
+                    </li>
+                    <!-- About -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">About</a>
+                    </li>
+                    <!-- Contact Us -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        </div>
+    </nav>
+    <br>
+        
+    <div class="calctitle">
+            <h1 class="text-center">Stress Calculator</h1>
+            <form id="stressForm">
+                <div class="form-group">
+                    <label for="force">Force (N):</label>
+                    <input type="number" class="form-control" id="force" required>
+                </div>
+                <div class="form-group">
+                    <label for="area">Area (m²):</label>
+                    <input type="number" class="form-control" id="area" required>
+                </div>
+                <button
+                    type="button"
+                    class="btn btn-primary btn-block"
+                    onclick="calculateStress()"
+                >Calculate Stress</button>
+                <div class="form-group mt-3">
+                    <label for="stressResult">Stress (N/m²):</label>
+                    <input type="number" class="form-control" id="stressResult" readonly>
+                </div>
+                <div class="error text-danger" id="errorStressMessage"></div>
+            </form>
+    </div>
+
+    <div class="calctitle">
+        <h1 class="text-center">Strain Calculator</h1>
+        <form id="stressForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="inLength"> Initial Length (in):</label>
+                    <input type="number" class="form-control" id="inLength"  required oninput="updateLength('inLength')">
+                </div>
+                <div class="form-group">
+                    <label for="fLength">Final Length (in):</label>
+                    <input type="number" class="form-control" id="fLength"  required oninput="updateLength('fLength')">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="deltaLength">Change in length (in):</label>
+                <input type="number" class="form-control" id="deltaLength"  required oninput="updateLength('deltaLength')">
+            </div> <br>
+            <div class="form-group">
+                <button type="button" class="form-control" onclick="calculateStrain()">Calculate Strain</button>
+            </div>
+            <div class="form-group">
+                <label for="strain">Strain:</label>
+                <input type="number" class="form-control" id="strainResult" readonly>
+            </div> 
+            <div class="error text-danger" id="errorStrainMessage"></div>
         </form>
     </div>
 
-    <h2>Material Properties</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Material</th>
-                <th>Stress (MPa)</th>
-                <th>Strain (mm/m)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Steel</td>
-                <td>250</td>
-                <td>0.002</td>
-            </tr>
-            <tr>
-                <td>Aluminum</td>
-                <td>150</td>
-                <td>0.003</td>
-            </tr>
-            <tr>
-                <td>Copper</td>
-                <td>200</td>
-                <td>0.004</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Javascripts for bootstrap navbar functions and calculator functions-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="calcStress.js"></script>
 </body>
 </html>
